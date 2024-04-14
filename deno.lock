@@ -4,6 +4,7 @@
     "specifiers": {
       "jsr:@david/dax@^0.39.2": "jsr:@david/dax@0.39.2",
       "jsr:@david/which@0.3": "jsr:@david/which@0.3.0",
+      "jsr:@jeb/encoding@^0.0.1": "jsr:@jeb/encoding@0.0.1",
       "jsr:@std/archive@^0.218.2": "jsr:@std/archive@0.218.2",
       "jsr:@std/assert@0.215": "jsr:@std/assert@0.215.0",
       "jsr:@std/assert@^0.213.0": "jsr:@std/assert@0.213.1",
@@ -11,7 +12,9 @@
       "jsr:@std/bytes@^0.213.0": "jsr:@std/bytes@0.213.1",
       "jsr:@std/bytes@^0.218.2": "jsr:@std/bytes@0.218.2",
       "jsr:@std/cli@^0.218.2": "jsr:@std/cli@0.218.2",
+      "jsr:@std/collections@^0.221.0": "jsr:@std/collections@0.221.0",
       "jsr:@std/encoding@^0.218.2": "jsr:@std/encoding@0.218.2",
+      "jsr:@std/encoding@^0.221.0": "jsr:@std/encoding@0.221.0",
       "jsr:@std/fmt@0.213.0": "jsr:@std/fmt@0.213.0",
       "jsr:@std/fmt@^0.215.0": "jsr:@std/fmt@0.215.0",
       "jsr:@std/fmt@^0.218.2": "jsr:@std/fmt@0.218.2",
@@ -42,6 +45,13 @@
       },
       "@david/which@0.3.0": {
         "integrity": "6bdb62c40ac90edcf328e854fa8103a8db21e7c326089cbe3c3a1cf7887d3204"
+      },
+      "@jeb/encoding@0.0.1": {
+        "integrity": "54ca0e68844db007b8e4aa2a9736f1dc793e61091e357f7431bd0da43ef57711",
+        "dependencies": [
+          "jsr:@std/collections@^0.221.0",
+          "jsr:@std/encoding@^0.221.0"
+        ]
       },
       "@std/archive@0.218.2": {
         "integrity": "bcf2a51953ebb14816d66170a50e1ac8805dd7c31e1b822887708211f5398c37",
@@ -76,8 +86,14 @@
           "jsr:@std/assert@^0.218.2"
         ]
       },
+      "@std/collections@0.221.0": {
+        "integrity": "789a365bb79b06c4da79d2b93fe32ddfe03b93ab083e72c1de96303d12f84be5"
+      },
       "@std/encoding@0.218.2": {
         "integrity": "da55a763c29bf0dbf06fd286430b358266eb99c28789d89fe9a3e28edecb8d8e"
+      },
+      "@std/encoding@0.221.0": {
+        "integrity": "d1dd76ef0dc5d14088411e6dc1dede53bf8308c95d1537df1214c97137208e45"
       },
       "@std/fmt@0.213.0": {
         "integrity": "4623054b309ee60e37cc3db2bc55385aa129bb899f0c50e912d79a763aee6b6a"
@@ -295,11 +311,11 @@
       }
     }
   },
-  "remote": {
-  },
+  "remote": {},
   "workspace": {
     "dependencies": [
       "jsr:@david/dax@^0.39.2",
+      "jsr:@jeb/encoding@^0.0.1",
       "jsr:@std/archive@^0.218.2",
       "jsr:@std/assert@^0.218.2",
       "jsr:@std/cli@^0.218.2",

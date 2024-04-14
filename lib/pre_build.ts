@@ -3,7 +3,7 @@
 import type { BuildCommand, CheckCommand } from "./args.ts";
 import * as colors from "@std/fmt/colors";
 import * as path from "@std/path";
-import * as base64 from "@std/encoding/base64";
+import { encode92 } from "@jeb/encoding";
 import { Sha1 } from "./utils/sha1.ts";
 import { getCargoWorkspace, type WasmCrate } from "./manifest.ts";
 import { verifyVersions } from "./versions.ts";
@@ -154,8 +154,9 @@ async function getBindingJsOutput(
 `;
   const genText = bindgenOutput.js.replace(
     /\bconst\swasm_url\s.+/ms,
-    getLoaderText(args, crate, bindgenOutput),
+    () => getLoaderText(args, crate, bindgenOutput),
   );
+
   const bodyText = await getFormattedText(`
 // source-hash: ${sourceHash}
 let wasm;
@@ -183,6 +184,7 @@ ${genText}
       stdin: "piped",
       stdout: "piped",
     });
+
     const denoFmtChild = denoFmtCmd.spawn();
     const stdin = denoFmtChild.stdin.getWriter();
     await stdin.write(new TextEncoder().encode(inputText));
@@ -242,6 +244,8 @@ function getLoaderText(
 function getSyncLoaderText(bindgenOutput: BindgenOutput) {
   const exportNames = getExportNames(bindgenOutput);
   return `
+import { decode92 } from "jsr:@jeb/encoding";
+
 export function instantiate() {
   return instantiateWithInstance().exports;
 }
@@ -267,22 +271,12 @@ export function isInstantiated() {
 }
 
 function instantiateInstance() {
-  const wasmBytes = base64decode("\\\n${
-    base64.encodeBase64(new Uint8Array(bindgenOutput.wasmBytes))
-      .replace(/.{78}/g, "$&\\\n")
+  const wasmBytes = decode92("\\\n${
+    encode92(new Uint8Array(bindgenOutput.wasmBytes))
+      .replace(/.{75}/gs, "$&\\\n")
   }\\\n");
   const wasmModule = new WebAssembly.Module(wasmBytes);
   return new WebAssembly.Instance(wasmModule, imports);
-}
-
-function base64decode(b64) {
-  const binString = atob(b64);
-  const size = binString.length;
-  const bytes = new Uint8Array(size);
-  for (let i = 0; i < size; i++) {
-    bytes[i] = binString.charCodeAt(i);
-  }
-  return bytes;
 }
   `;
 }
