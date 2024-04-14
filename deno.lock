@@ -4,7 +4,7 @@
     "specifiers": {
       "jsr:@david/dax@^0.39.2": "jsr:@david/dax@0.39.2",
       "jsr:@david/which@0.3": "jsr:@david/which@0.3.0",
-      "jsr:@jeb/encoding@^0.0.1": "jsr:@jeb/encoding@0.0.1",
+      "jsr:@jeb/encoding@^0.0.5": "jsr:@jeb/encoding@0.0.5",
       "jsr:@std/archive@^0.218.2": "jsr:@std/archive@0.218.2",
       "jsr:@std/assert@0.215": "jsr:@std/assert@0.215.0",
       "jsr:@std/assert@^0.213.0": "jsr:@std/assert@0.213.1",
@@ -15,6 +15,7 @@
       "jsr:@std/collections@^0.221.0": "jsr:@std/collections@0.221.0",
       "jsr:@std/encoding@^0.218.2": "jsr:@std/encoding@0.218.2",
       "jsr:@std/encoding@^0.221.0": "jsr:@std/encoding@0.221.0",
+      "jsr:@std/encoding@^0.222.1": "jsr:@std/encoding@0.222.1",
       "jsr:@std/fmt@0.213.0": "jsr:@std/fmt@0.213.0",
       "jsr:@std/fmt@^0.215.0": "jsr:@std/fmt@0.215.0",
       "jsr:@std/fmt@^0.218.2": "jsr:@std/fmt@0.218.2",
@@ -51,6 +52,12 @@
         "dependencies": [
           "jsr:@std/collections@^0.221.0",
           "jsr:@std/encoding@^0.221.0"
+        ]
+      },
+      "@jeb/encoding@0.0.5": {
+        "integrity": "9afb24a4b1ccf80a2bb3a08b806d39e32c591039a7369c85bade55f7a5ec1323",
+        "dependencies": [
+          "jsr:@std/encoding@^0.222.1"
         ]
       },
       "@std/archive@0.218.2": {
@@ -94,6 +101,9 @@
       },
       "@std/encoding@0.221.0": {
         "integrity": "d1dd76ef0dc5d14088411e6dc1dede53bf8308c95d1537df1214c97137208e45"
+      },
+      "@std/encoding@0.222.1": {
+        "integrity": "fb6c1d38722feebc8d4a5efa3eb2039ecec0d50d053186240484d0c4a4ce1006"
       },
       "@std/fmt@0.213.0": {
         "integrity": "4623054b309ee60e37cc3db2bc55385aa129bb899f0c50e912d79a763aee6b6a"
@@ -315,7 +325,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@david/dax@^0.39.2",
-      "jsr:@jeb/encoding@^0.0.1",
+      "jsr:@jeb/encoding@^0.0.5",
       "jsr:@std/archive@^0.218.2",
       "jsr:@std/assert@^0.218.2",
       "jsr:@std/cli@^0.218.2",
