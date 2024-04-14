@@ -159,6 +159,7 @@ async function getBindingJsOutput(
 
   const bodyText = await getFormattedText(`
 // source-hash: ${sourceHash}
+// wasm-length: ${bindgenOutput.wasmBytes.length}
 let wasm;
 ${genText.includes("let cachedInt32Memory0") ? "" : "let cachedInt32Memory0;"}
 ${genText.includes("let cachedUint8Memory0") ? "" : "let cachedUint8Memory0;"}
