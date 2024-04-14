@@ -3,6 +3,7 @@
   "packages": {
     "specifiers": {
       "jsr:@jeb/encoding@0.0.6": "jsr:@jeb/encoding@0.0.6",
+      "jsr:@jeb/encoding@0.0.7": "jsr:@jeb/encoding@0.0.7",
       "jsr:@std/archive@^0.218.2": "jsr:@std/archive@0.218.2",
       "jsr:@std/assert@^0.218.2": "jsr:@std/assert@0.218.2",
       "jsr:@std/bytes@^0.218.2": "jsr:@std/bytes@0.218.2",
@@ -17,6 +18,12 @@
     "jsr": {
       "@jeb/encoding@0.0.6": {
         "integrity": "475df4932c4a655e39e974f656899cdde354e916304e876811c630412f973b7f",
+        "dependencies": [
+          "jsr:@std/encoding@^0.222.1"
+        ]
+      },
+      "@jeb/encoding@0.0.7": {
+        "integrity": "597d4843412c4ec6d7cfe1e73e35f519e384814410a5aeb5ff2d6655b9f16c7a",
         "dependencies": [
           "jsr:@std/encoding@^0.222.1"
         ]

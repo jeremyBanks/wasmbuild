@@ -3,7 +3,7 @@
 import type { BuildCommand, CheckCommand } from "./args.ts";
 import * as colors from "@std/fmt/colors";
 import * as path from "@std/path";
-import { encode92, SAFE_CHARACTERS } from "jsr:@jeb/encoding@0.0.6";
+import { encode92, SAFE_CHARACTERS } from "jsr:@jeb/encoding@0.0.7";
 import { Sha1 } from "./utils/sha1.ts";
 import { getCargoWorkspace, type WasmCrate } from "./manifest.ts";
 import { verifyVersions } from "./versions.ts";
@@ -253,7 +253,7 @@ function getLoaderText(
 function getSyncLoaderText(bindgenOutput: BindgenOutput) {
   const exportNames = getExportNames(bindgenOutput);
   return `
-import { decode92 } from "jsr:@jeb/encoding@0.0.6";
+import { decode92 } from "jsr:@jeb/encoding@0.0.7";
 
 export function instantiate() {
   return instantiateWithInstance().exports;
